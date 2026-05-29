@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Studio Guide | LightLab Studio</title>
+
+  <!-- Bootstrap -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <div class="logo-mark">
+            <img src="colored-logo.png" alt="LightLab Studio Logo" class="logo-img">
+          </div>
+          
+        </a>
+
+        <span class="navbar-text d-none d-md-block">
+          Studio Guide
+        </span>
+
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container guide-section">
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <div class="guide-card clean-guide-card">
+
+            <p class="small-label text-center">welcome to the studio</p>
+
+            <h1 class="guide-title text-center">
+              Get Ready to Light Like a Product Photographer
+            </h1>
+
+            <p class="guide-intro text-center">
+              Before we jump into the virtual studio, here is a quick preview of what you will explore.
+              This lesson is short, visual, and hands-on.
+            </p>
+
+            <div class="time-pill mx-auto">
+              Takes about 15–30 minutes · move at your own pace
+            </div>
+
+            <!-- Collapsible Table of Contents -->
+            <div class="accordion toc-accordion" id="guideAccordion">
+              <div class="accordion-item custom-accordion-item">
+                <h2 class="accordion-header">
+                  <button 
+                    class="accordion-button collapsed custom-accordion-button" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#tableContents"
+                    aria-expanded="false" 
+                    aria-controls="tableContents">
+                    Table of Contents
+                  </button>
+                </h2>
+
+                <div id="tableContents" class="accordion-collapse collapse" data-bs-parent="#guideAccordion">
+                  <div class="accordion-body custom-accordion-body">
+
+                    <a href="#studio-roadmap" class="toc-link">
+                      Studio Roadmap
+                    </a>
+
+                    <a href="module1.html" class="toc-link">
+                      Module 1: Meet the Lights
+                    </a>
+
+                    <a href="module2.html" class="toc-link">
+                      Module 2: Shadow Behavior
+                    </a>
+
+                    <a href="module3.html" class="toc-link">
+                      Module 3: Studio Challenge
+                    </a>
+
+                    <a href="evaluation.html" class="toc-link">
+                      Evaluation
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Studio Roadmap -->
+            <section id="studio-roadmap" class="studio-roadmap-section">
+
+              <div class="roadmap-heading">
+                <p class="small-label">what are we learning today?</p>
+                <h2>Your Mini Studio Mission</h2>
+                <p>
+                  Think of this lesson like setting up a small product shoot. You will notice how light behaves,
+                  predict how shadows change, and practice making better lighting choices.
+                </p>
+              </div>
+
+              <div class="mission-box-flow">
+
+                <div class="mission-box">
+                  <h4>Recognize</h4>
+                  <p>Identify the Key Light, Fill Light, Back Light, and Bounce Card.</p>
+                </div>
+
+                <div class="mission-arrow">→</div>
+
+                <div class="mission-box">
+                  <h4>Predict</h4>
+                  <p>Understand how light placement changes shadows, highlights, and depth.</p>
+                </div>
+
+                <div class="mission-arrow">→</div>
+
+                <div class="mission-box">
+                  <h4>Practice</h4>
+                  <p>Use what you learned to build a cleaner product lighting setup.</p>
+                </div>
+
+              </div>
+
+            </section>
+
+            <!-- Photography Tip -->
+            <section class="did-you-know-box simple-fact-box">
+              <button class="bulb-button" onclick="showFunFact()">
+                💡
+              </button>
+
+              <div>
+                <h4>Photography Did You Know?</h4>
+                <p id="funFactText">
+                  Click the light bulb for a quick product photography tip.
+                </p>
+              </div>
+            </section>
+
+            <!-- Embedded Google Form -->
+            <section class="embedded-form-section" id="questionnaire-section">
+              <p class="small-label">before you begin</p>
+
+              <h2>Quick Pre-Understanding Check</h2>
+
+              <p>
+                Before entering Module 1, please complete this short form. There are no right or wrong answers.
+                It only helps understand what you already know about product photography lighting.
+              </p>
+
+              <div class="google-form-frame">
+                <!-- Replace the src below with your Google Form EMBED link -->
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSc6RqcMZvwiYgbWGvrMfPDz8YHSJOCRTAbZMXHFx6-clBZAog/viewform"
+                  width="100%" 
+                  height="760" 
+                  frameborder="0" 
+                  marginheight="0" 
+                  marginwidth="0">
+                  Loading…
+                </iframe>
+              </div>
+            </section>
+
+            <!-- Buttons -->
+            <div class="page-buttons">
+              <a href="index.html" class="btn back-btn">Back</a>
+              <a href="module1.html" class="btn start-btn">Continue</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="container text-center">
+        <p class="footer-name mb-0">Siddhi Naik</p>
+        <p class="footer-year mb-0">2026</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Bootstrap JS for collapsible table of contents -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const facts = [
+      "A small change in light position can completely change how professional a product photo looks.",
+      "Fill Light is not meant to remove every shadow. A little shadow helps the product keep depth.",
+      "Back Light helps separate the product from the background, which makes the subject stand out.",
+      "A simple white card can reflect light back onto a product and soften dark shadows."
+    ];
+
+    let factIndex = 0;
+
+    function showFunFact() {
+      const factText = document.getElementById("funFactText");
+      factText.textContent = facts[factIndex];
+      factIndex = (factIndex + 1) % facts.length;
+    }
+  </script>
+
+</body>
+</html>

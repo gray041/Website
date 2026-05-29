@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Module 3 | Hands-On Placement</title>
+
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <div class="logo-mark">
+            <img src="colored-logo.png" alt="LightLab Studio Logo" class="logo-img">
+          </div>
+         
+        </a>
+
+        <span class="navbar-text d-none d-md-block">
+          Module 3: Hands-On Placement
+        </span>
+
+      </div>
+    </nav>
+
+    <main class="container module3-page">
+
+      <!-- Top Box -->
+      <section class="module3-hero-wow">
+
+        <div class="module3-glow-yellow"></div>
+        <div class="module3-glow-blue"></div>
+
+        <div class="module3-hero-content">
+
+          <p class="module-three-text">
+            Module 3
+          </p>
+
+          <h1>
+            Hands-On Placement
+          </h1>
+
+          <p>
+            Build a simple 3-point lighting setup. Choose the strength of each light and use the bounce card
+            to reduce harsh shadows while keeping depth in the product photo.
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- Main Module 3 Layout -->
+      <section class="module3-placement-layout">
+
+        <!-- Left Controls -->
+        <aside class="module3-left-panel">
+
+          <p class="panel-title">Studio Controls</p>
+
+          <div class="light-control-group">
+            <span>Key Light</span>
+            <small>Main light source</small>
+
+            <div class="level-buttons">
+              <button onclick="setLightLevel('key', 35, this)">Low</button>
+              <button class="active" onclick="setLightLevel('key', 65, this)">Medium</button>
+              <button onclick="setLightLevel('key', 90, this)">High</button>
+            </div>
+          </div>
+
+          <div class="light-control-group">
+            <span>Fill Light</span>
+            <small>Softens shadows</small>
+
+            <div class="level-buttons">
+              <button onclick="setLightLevel('fill', 25, this)">Low</button>
+              <button class="active" onclick="setLightLevel('fill', 45, this)">Medium</button>
+              <button onclick="setLightLevel('fill', 75, this)">High</button>
+            </div>
+          </div>
+
+          <div class="light-control-group">
+            <span>Back Light</span>
+            <small>Separates product</small>
+
+            <div class="level-buttons">
+              <button onclick="setLightLevel('back', 25, this)">Low</button>
+              <button class="active" onclick="setLightLevel('back', 55, this)">Medium</button>
+              <button onclick="setLightLevel('back', 85, this)">High</button>
+            </div>
+          </div>
+
+          <button class="bounce-card-toggle active" id="bounceToggle" onclick="toggleBounceCard()">
+            Bounce Card: ON
+          </button>
+
+        </aside>
+
+        <!-- Center Portrait Image -->
+        <section class="module3-center-frame" id="module3PhotoFrame">
+
+          <img src="bottle image .png" alt="Bottle product" class="module3-product-img">
+
+          <div class="m3-key-light-effect" id="keyEffect"></div>
+          <div class="m3-fill-light-effect" id="fillEffect"></div>
+          <div class="m3-back-light-effect" id="backEffect"></div>
+          <div class="m3-bounce-effect" id="bounceEffect"></div>
+          <div class="m3-shadow-effect" id="shadowEffect"></div>
+          <div class="m3-rim-effect" id="rimEffect"></div>
+
+        </section>
+
+        <!-- Right Info Panel -->
+        <aside class="module3-right-panel">
+
+          <p class="small-label">result feedback</p>
+
+          <h2 id="resultTitle">
+            Balanced Setup
+          </h2>
+
+          <p id="resultDescription">
+            This setup has a strong Key Light, a softer Fill Light, a helpful Back Light, and a Bounce Card to control shadows.
+          </p>
+
+          <div class="setup-meter-box">
+
+            <div class="meter-row">
+              <span>Shadow</span>
+              <strong id="shadowStatus">Balanced</strong>
+            </div>
+
+            <div class="meter-row">
+              <span>Depth</span>
+              <strong id="depthStatus">Good</strong>
+            </div>
+
+            <div class="meter-row">
+              <span>Separation</span>
+              <strong id="separationStatus">Good</strong>
+            </div>
+
+          </div>
+
+          <div class="final-task-box-simple">
+            <span>Final Task</span>
+            <p>
+              Create a setup that reduces harsh shadows while still keeping depth in the product image.
+            </p>
+          </div>
+
+          <button class="check-module3-btn" onclick="checkModule3Setup()">
+            Check My Setup
+          </button>
+
+          <p id="module3SetupFeedback" class="module3-feedback"></p>
+
+        </aside>
+
+      </section>
+
+      <!-- Placement Guide -->
+      <section class="module3-guide-section">
+
+        <p class="small-label">placement guide</p>
+
+        <h2>What each tool should do</h2>
+
+        <div class="module3-guide-grid">
+
+          <div class="guide-card">
+            <span>Key Light</span>
+            <p>Creates the main direction of light and the main shadow.</p>
+          </div>
+
+          <div class="guide-card">
+            <span>Fill Light</span>
+            <p>Softens the shadow side without removing all depth.</p>
+          </div>
+
+          <div class="guide-card">
+            <span>Back Light</span>
+            <p>Adds a clean edge so the product stands out from the background.</p>
+          </div>
+
+          <div class="guide-card">
+            <span>Bounce Card</span>
+            <p>Reflects soft light back into dark areas.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Quick Check -->
+      <section class="module3-check">
+
+        <div>
+          <p class="small-label">quick check</p>
+          <h2>What happens if the Fill Light is too strong?</h2>
+          <p>Choose the best answer before continuing.</p>
+        </div>
+
+        <div class="check-options">
+          <button onclick="checkModule3Answer('flat')" class="answer-btn">The image may look too flat</button>
+          <button onclick="checkModule3Answer('sharp')" class="answer-btn">The product becomes sharper</button>
+          <button onclick="checkModule3Answer('dark')" class="answer-btn">The background disappears</button>
+        </div>
+
+        <p id="module3Feedback" class="answer-feedback"></p>
+
+      </section>
+
+      <div class="page-buttons">
+        <a href="module2.html" class="btn back-btn">Back to Module 2</a>
+        <a href="evaluation.html" class="btn start-btn">Continue to Evaluation</a>
+      </div>
+
+    </main>
+
+    <footer class="footer-section">
+      <div class="container text-center">
+        <p class="footer-name mb-0">Siddhi Naik</p>
+        <p class="footer-year mb-0">2026</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    let keyLevel = 65;
+    let fillLevel = 45;
+    let backLevel = 55;
+    let bounceOn = true;
+
+    function setLightLevel(light, value, button) {
+      if (light === "key") keyLevel = value;
+      if (light === "fill") fillLevel = value;
+      if (light === "back") backLevel = value;
+
+      const group = button.closest(".level-buttons");
+      group.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      updateModule3Scene();
+    }
+
+    function toggleBounceCard() {
+      bounceOn = !bounceOn;
+
+      const btn = document.getElementById("bounceToggle");
+
+      if (bounceOn) {
+        btn.textContent = "Bounce Card: ON";
+        btn.classList.add("active");
+      } else {
+        btn.textContent = "Bounce Card: OFF";
+        btn.classList.remove("active");
+      }
+
+      updateModule3Scene();
+    }
+
+    function updateModule3Scene() {
+      const keyEffect = document.getElementById("keyEffect");
+      const fillEffect = document.getElementById("fillEffect");
+      const backEffect = document.getElementById("backEffect");
+      const bounceEffect = document.getElementById("bounceEffect");
+      const shadowEffect = document.getElementById("shadowEffect");
+      const rimEffect = document.getElementById("rimEffect");
+      const frame = document.getElementById("module3PhotoFrame");
+
+      keyEffect.style.opacity = keyLevel / 115;
+      fillEffect.style.opacity = fillLevel / 145;
+      backEffect.style.opacity = backLevel / 130;
+      rimEffect.style.opacity = backLevel / 125;
+      bounceEffect.style.opacity = bounceOn ? 0.32 : 0;
+
+      let shadowPower = keyLevel - fillLevel;
+
+      if (bounceOn) {
+        shadowPower -= 15;
+      }
+
+      shadowPower = Math.max(8, Math.min(75, shadowPower));
+
+      shadowEffect.style.opacity = shadowPower / 100;
+      shadowEffect.style.filter = "blur(" + (22 - fillLevel / 11) + "px)";
+
+      const brightness = 0.94 + (keyLevel + fillLevel + backLevel) / 850;
+      const contrast = 1 + (keyLevel - fillLevel) / 650;
+
+      frame.style.filter = "brightness(" + brightness + ") contrast(" + contrast + ")";
+
+      updateModule3FeedbackText(shadowPower);
+    }
+
+    function updateModule3FeedbackText(shadowPower) {
+      const resultTitle = document.getElementById("resultTitle");
+      const resultDescription = document.getElementById("resultDescription");
+      const shadowStatus = document.getElementById("shadowStatus");
+      const depthStatus = document.getElementById("depthStatus");
+      const separationStatus = document.getElementById("separationStatus");
+
+      if (shadowPower > 45) {
+        shadowStatus.textContent = "Too Harsh";
+      } else if (shadowPower < 15) {
+        shadowStatus.textContent = "Too Flat";
+      } else {
+        shadowStatus.textContent = "Balanced";
+      }
+
+      if (keyLevel > fillLevel + 10) {
+        depthStatus.textContent = "Good";
+      } else {
+        depthStatus.textContent = "Low";
+      }
+
+      if (backLevel >= 45) {
+        separationStatus.textContent = "Good";
+      } else {
+        separationStatus.textContent = "Low";
+      }
+
+      if (shadowPower >= 15 && shadowPower <= 45 && keyLevel > fillLevel + 10 && backLevel >= 45 && bounceOn) {
+        resultTitle.textContent = "Balanced Setup";
+        resultDescription.textContent = "This setup reduces harsh shadows while still keeping depth and product separation.";
+      } else if (shadowPower > 45) {
+        resultTitle.textContent = "Shadow Too Harsh";
+        resultDescription.textContent = "Try increasing the Fill Light or turning on the Bounce Card to soften the dark side.";
+      } else if (shadowPower < 15) {
+        resultTitle.textContent = "Too Flat";
+        resultDescription.textContent = "The setup is too even. Lower the Fill Light or increase the Key Light to bring back depth.";
+      } else if (backLevel < 45) {
+        resultTitle.textContent = "Needs Separation";
+        resultDescription.textContent = "Increase the Back Light so the product stands out more from the background.";
+      } else {
+        resultTitle.textContent = "Almost There";
+        resultDescription.textContent = "The setup is close. Adjust the lights until shadow, depth, and separation are balanced.";
+      }
+    }
+
+    function checkModule3Setup() {
+      const feedback = document.getElementById("module3SetupFeedback");
+
+      let shadowPower = keyLevel - fillLevel;
+
+      if (bounceOn) {
+        shadowPower -= 15;
+      }
+
+      const goodSetup =
+        shadowPower >= 15 &&
+        shadowPower <= 45 &&
+        keyLevel > fillLevel + 10 &&
+        backLevel >= 45 &&
+        bounceOn;
+
+      if (goodSetup) {
+        feedback.textContent = "Great setup. You reduced harsh shadows while keeping depth.";
+        feedback.className = "module3-feedback module3-good";
+      } else if (!bounceOn) {
+        feedback.textContent = "Turn on the Bounce Card to soften the shadow side.";
+        feedback.className = "module3-feedback module3-warning";
+      } else if (shadowPower > 45) {
+        feedback.textContent = "The shadow is still too harsh. Use more Fill Light or Bounce Card support.";
+        feedback.className = "module3-feedback module3-warning";
+      } else if (shadowPower < 15) {
+        feedback.textContent = "The image is too flat. Lower the Fill Light or raise the Key Light.";
+        feedback.className = "module3-feedback module3-warning";
+      } else if (backLevel < 45) {
+        feedback.textContent = "Increase the Back Light to separate the product from the background.";
+        feedback.className = "module3-feedback module3-warning";
+      } else {
+        feedback.textContent = "Almost there. Keep adjusting until the setup feels balanced.";
+        feedback.className = "module3-feedback module3-warning";
+      }
+    }
+
+    function checkModule3Answer(answer) {
+      const feedback = document.getElementById("module3Feedback");
+
+      if (answer === "flat") {
+        feedback.textContent = "Correct. Too much Fill Light can remove depth and make the product look flat.";
+        feedback.className = "answer-feedback correct-answer";
+      } else {
+        feedback.textContent = "Try again. Think about what happens when shadows are removed too much.";
+        feedback.className = "answer-feedback wrong-answer";
+      }
+    }
+
+    updateModule3Scene();
+  </script>
+
+</body>
+</html>

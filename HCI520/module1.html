@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Module 1 | Meet the Lights</title>
+
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <div class="logo-mark">
+            <img src="colored-logo.png" alt="LightLab Studio Logo" class="logo-img">
+          </div>
+         
+        </a>
+
+        <span class="navbar-text d-none d-md-block">
+          Module 1: Meet the Lights
+        </span>
+
+      </div>
+    </nav>
+
+    <main class="container module1-page">
+
+      <!-- Fun Intro -->
+      <section class="module1-hero-wow">
+
+        <div class="module1-glow-yellow"></div>
+        <div class="module1-glow-blue"></div>
+
+        <div class="module1-hero-content">
+
+          <p class="module-one-badge">
+            Module 1
+          </p>
+
+          <h1>
+            Meet the Lights
+          </h1>
+
+          <p>
+            Every product photo starts with light. In this module, you will click each lighting tool,
+            watch it appear in the studio, and learn how it changes the product shot.
+          </p>
+
+          <div class="module1-mini-flow">
+            <span>Click a light</span>
+            <span>Watch the glow</span>
+            <span>Learn its role</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Main Layout -->
+      <section class="module1-portrait-layout">
+
+        <!-- Left Controls -->
+        <aside class="portrait-controls">
+
+          <button class="light-control-card" onclick="showLight('key', this)">
+            <span>Key Light</span>
+            <small>Main source of light</small>
+          </button>
+
+          <button class="light-control-card" onclick="showLight('fill', this)">
+            <span>Fill Light</span>
+            <small>Softens shadows</small>
+          </button>
+
+          <button class="light-control-card" onclick="showLight('back', this)">
+            <span>Back Light</span>
+            <small>Separates product</small>
+          </button>
+
+          <button class="light-control-card" onclick="showLight('bounce', this)">
+            <span>Bounce Card</span>
+            <small>Reflects light</small>
+          </button>
+
+        </aside>
+
+        <!-- Portrait Studio Image -->
+        <section class="portrait-studio-frame">
+
+          <img src="bottle image .png" alt="Metal bottle product" class="portrait-studio-image">
+
+          <!-- Rays -->
+          <div class="studio-ray ray-key"></div>
+          <div class="studio-ray ray-fill"></div>
+          <div class="studio-ray ray-back"></div>
+          <div class="studio-ray ray-bounce"></div>
+
+          <!-- Lights hidden until clicked -->
+          <div class="studio-tool-light key-position">
+            <div class="softbox-head"></div>
+            <div class="softbox-stand"></div>
+          </div>
+
+          <div class="studio-tool-light fill-position">
+            <div class="softbox-head"></div>
+            <div class="softbox-stand"></div>
+          </div>
+
+          <div class="studio-tool-light back-position">
+            <div class="softbox-head"></div>
+            <div class="softbox-stand"></div>
+          </div>
+
+          <!-- Bounce card hidden until clicked -->
+          <div class="studio-bounce-card">
+            <div class="bounce-card-face"></div>
+          </div>
+
+          <!-- Camera always visible -->
+          <div class="studio-camera-real">
+            <div class="camera-top-shape"></div>
+            <div class="camera-body-shape">
+              <div class="camera-lens-shape"></div>
+              <div class="camera-small-detail"></div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Right Description -->
+        <aside class="light-description-panel empty-state" id="descriptionPanel">
+
+          <p class="small-label">selected tool</p>
+
+          <h2 id="lightTitle">Choose a light</h2>
+
+          <p id="lightDescription">
+            Click one of the lighting buttons to reveal it around the bottle.
+          </p>
+
+          <div class="description-tip">
+            <span>Studio Tip</span>
+            <p id="lightTip">
+              The yellow glow will show how that tool affects the product setup.
+            </p>
+          </div>
+
+        </aside>
+
+      </section>
+
+      <!-- Quick Check -->
+      <section class="module1-check">
+
+        <div>
+          <p class="small-label">quick check</p>
+          <h2>Which light is the main light source?</h2>
+          <p>Choose the correct answer before moving to the next module.</p>
+        </div>
+
+        <div class="check-options">
+          <button onclick="checkAnswer('fill')" class="answer-btn">Fill Light</button>
+          <button onclick="checkAnswer('key')" class="answer-btn">Key Light</button>
+          <button onclick="checkAnswer('back')" class="answer-btn">Back Light</button>
+        </div>
+
+        <p id="answerFeedback" class="answer-feedback"></p>
+
+      </section>
+
+      <div class="page-buttons">
+        <a href="studio-guide.html" class="btn back-btn">Back</a>
+        <a href="module2.html" class="btn start-btn">Continue to Module 2</a>
+      </div>
+
+    </main>
+
+    <footer class="footer-section">
+      <div class="container text-center">
+        <p class="footer-name mb-0">Siddhi Naik</p>
+        <p class="footer-year mb-0">2026</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function showLight(type, button) {
+      const title = document.getElementById("lightTitle");
+      const description = document.getElementById("lightDescription");
+      const tip = document.getElementById("lightTip");
+      const panel = document.getElementById("descriptionPanel");
+
+      panel.classList.remove("empty-state");
+
+      document.querySelectorAll(".light-control-card").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      document.querySelectorAll(".studio-tool-light").forEach(light => {
+        light.classList.remove("show-tool");
+      });
+
+      document.querySelector(".studio-bounce-card").classList.remove("show-bounce");
+
+      document.querySelectorAll(".studio-ray").forEach(ray => {
+        ray.classList.remove("show-ray");
+      });
+
+      if (type === "key") {
+        title.textContent = "Key Light";
+        description.textContent = "The Key Light is the main light source. It creates the strongest direction of light and sets the main look of the product photo.";
+        tip.textContent = "Start with the Key Light first because it controls the overall mood and shadow direction.";
+        document.querySelector(".key-position").classList.add("show-tool");
+        document.querySelector(".ray-key").classList.add("show-ray");
+      }
+
+      if (type === "fill") {
+        title.textContent = "Fill Light";
+        description.textContent = "The Fill Light is placed on the opposite side of the Key Light. It softens dark shadows without removing depth completely.";
+        tip.textContent = "Use Fill Light gently. Too much fill can make the product look flat.";
+        document.querySelector(".fill-position").classList.add("show-tool");
+        document.querySelector(".ray-fill").classList.add("show-ray");
+      }
+
+      if (type === "back") {
+        title.textContent = "Back Light";
+        description.textContent = "The Back Light is placed behind the product. It helps separate the product from the background and creates a clean edge.";
+        tip.textContent = "Back Light is especially useful when the product is dark or close to the background color.";
+        document.querySelector(".back-position").classList.add("show-tool");
+        document.querySelector(".ray-back").classList.add("show-ray");
+      }
+
+      if (type === "bounce") {
+        title.textContent = "Bounce Card";
+        description.textContent = "A Bounce Card reflects light back onto the product. It helps brighten dark areas and soften shadows.";
+        tip.textContent = "A simple white card can work as a bounce card in real tabletop photography.";
+        document.querySelector(".studio-bounce-card").classList.add("show-bounce");
+        document.querySelector(".ray-bounce").classList.add("show-ray");
+      }
+    }
+
+    function checkAnswer(answer) {
+      const feedback = document.getElementById("answerFeedback");
+
+      if (answer === "key") {
+        feedback.textContent = "Correct. The Key Light is the main light source.";
+        feedback.className = "answer-feedback correct-answer";
+      } else {
+        feedback.textContent = "Try again. The main light source controls the strongest direction of light.";
+        feedback.className = "answer-feedback wrong-answer";
+      }
+    }
+  </script>
+
+</body>
+</html>

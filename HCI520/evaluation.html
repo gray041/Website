@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Evaluation</title>
+
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="page-wrapper">
+
+    <nav class="navbar navbar-expand-lg bg-white border-bottom">
+      <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <div class="logo-mark">
+            <img src="colored-logo.png" alt="LightLab Studio Logo" class="logo-img">
+          </div>
+          
+        </a>
+
+        <span class="navbar-text d-none d-md-block">
+          Final Evaluation
+        </span>
+
+      </div>
+    </nav>
+
+    <main class="container evaluation-page">
+
+      <!-- Top Box -->
+      <section class="evaluation-hero-wow">
+
+        <div class="evaluation-glow-yellow"></div>
+        <div class="evaluation-glow-blue"></div>
+
+        <div class="evaluation-hero-content">
+
+          <p class="evaluation-module-text">
+            Evaluation
+          </p>
+
+          <h1>
+            Final Studio Check
+          </h1>
+
+          <p>
+            You have learned the lighting tools, shadow behavior, and how to adjust a 3-point lighting setup.
+            Now complete the final challenge and post-test to show what you learned.
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- Final Challenge -->
+      <section class="evaluation-challenge-layout">
+
+        <!-- Left Scenario -->
+        <section class="challenge-scenario-card">
+
+          <p class="small-label">final studio challenge</p>
+
+          <h2>
+            Fix the Product Photo
+          </h2>
+
+          <p>
+            Imagine your product photo has a strong dark shadow on one side, but you still want the product to keep depth.
+            What is the best lighting adjustment?
+          </p>
+
+          <div class="challenge-photo-box">
+            <img 
+              src="evaluationimg.png" 
+              alt="Product photo with strong shadow" 
+              class="challenge-product-image"
+            >
+          </div>
+
+        </section>
+
+        <!-- Right Interactive Answers -->
+        <section class="challenge-answer-card">
+
+          <p class="small-label">choose an adjustment</p>
+
+          <h2>
+            What should you do?
+          </h2>
+
+          <div class="challenge-options">
+
+            <button onclick="checkChallenge('fill', this)" class="challenge-option-btn">
+              Increase Fill Light
+            </button>
+
+            <button onclick="checkChallenge('bounce', this)" class="challenge-option-btn">
+              Turn on Bounce Card
+            </button>
+
+            <button onclick="checkChallenge('back', this)" class="challenge-option-btn">
+              Only increase Back Light
+            </button>
+
+            <button onclick="checkChallenge('keyoff', this)" class="challenge-option-btn">
+              Turn off Key Light
+            </button>
+
+          </div>
+
+          <div class="challenge-feedback-box" id="challengeFeedbackBox">
+
+            <span id="challengeFeedbackTitle">
+              Make your choice
+            </span>
+
+            <p id="challengeFeedbackText">
+              Select one answer to see if it improves the lighting setup.
+            </p>
+
+          </div>
+
+        </section>
+
+      </section>
+
+      <!-- Post-Test Section -->
+      <section class="post-test-section">
+
+        <div class="post-test-intro">
+
+          <p class="small-label">post-test</p>
+
+          <h2>
+            Final Check: What did you learn?
+          </h2>
+
+          <p>
+            Complete the post-test using the same questions from the pre-test. This helps compare your understanding
+            before and after using the Studio Challenge.
+          </p>
+
+        </div>
+
+        <div class="google-form-box">
+
+         
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdkxQfU4hWRmMFqPG6lgHqYHQSDe7WEBYn2KRvKngzCaCFhKA/viewform"
+            width="100%" 
+            height="720" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0">
+            Loading…
+          </iframe>
+
+        </div>
+
+      </section>
+
+      <!-- Completion Message -->
+      <section class="completion-section">
+
+        <div>
+          <p class="small-label">lesson complete</p>
+
+          <h2>
+            You completed Studio Challenge
+          </h2>
+
+          <p>
+            You practiced identifying lighting tools, understanding shadows, and adjusting a 3-point lighting setup.
+            These skills can help you create better tabletop product photos.
+          </p>
+        </div>
+
+        <div class="completion-card">
+          <span>Reflection</span>
+          <p>
+            What is one lighting change you would try in a real product photo?
+          </p>
+        </div>
+
+      </section>
+
+      <!-- Navigation -->
+      <div class="page-buttons">
+        <a href="module3.html" class="btn back-btn">Back to Module 3</a>
+        <a href="done.html" class="btn start-btn">Finish Lesson</a>
+      </div>
+
+    </main>
+
+    <footer class="footer-section">
+      <div class="container text-center">
+        <p class="footer-name mb-0">Siddhi Naik</p>
+        <p class="footer-year mb-0">2026</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function checkChallenge(answer, button) {
+      const feedbackBox = document.getElementById("challengeFeedbackBox");
+      const feedbackTitle = document.getElementById("challengeFeedbackTitle");
+      const feedbackText = document.getElementById("challengeFeedbackText");
+
+      document.querySelectorAll(".challenge-option-btn").forEach(btn => {
+        btn.classList.remove("active", "wrong");
+      });
+
+      button.classList.add("active");
+
+      if (answer === "fill") {
+        feedbackBox.className = "challenge-feedback-box correct";
+        feedbackTitle.textContent = "Good choice";
+        feedbackText.textContent = "Increasing the Fill Light can soften the dark shadow side while still keeping some depth.";
+      }
+
+      else if (answer === "bounce") {
+        feedbackBox.className = "challenge-feedback-box correct";
+        feedbackTitle.textContent = "Good choice";
+        feedbackText.textContent = "A Bounce Card reflects light back into the shadow side and helps reduce harsh shadows softly.";
+      }
+
+      else if (answer === "back") {
+        button.classList.add("wrong");
+        feedbackBox.className = "challenge-feedback-box wrong";
+        feedbackTitle.textContent = "Not the best fix";
+        feedbackText.textContent = "Back Light helps separation, but it does not directly fix a harsh shadow on the front or side.";
+      }
+
+      else {
+        button.classList.add("wrong");
+        feedbackBox.className = "challenge-feedback-box wrong";
+        feedbackTitle.textContent = "Try again";
+        feedbackText.textContent = "Turning off the Key Light removes the main direction of light. A better fix is Fill Light or Bounce Card.";
+      }
+    }
+  </script>
+
+</body>
+</html>
